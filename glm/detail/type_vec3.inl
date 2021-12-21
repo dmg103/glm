@@ -1,6 +1,7 @@
 /// @ref core
 
 #include "compute_vector_relational.hpp"
+#include <iostream>
 
 namespace glm
 {
@@ -38,6 +39,11 @@ namespace glm
 	template <typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<3, T, Q>::vec(T _x, T _y, T _z)
 		: x(_x), y(_y), z(_z)
+	{}
+
+	template <typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<3, T, Q>::vec(const std::array<float,3> _values)
+		: x(_values[0]), y(_values[1]), z(_values[2])
 	{}
 
 	// -- Conversion scalar constructors --
