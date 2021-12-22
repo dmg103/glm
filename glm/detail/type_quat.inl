@@ -2,7 +2,6 @@
 #include "../exponential.hpp"
 #include "../ext/quaternion_common.hpp"
 #include "../ext/quaternion_geometric.hpp"
-#include <iostream>
 #include <limits>
 
 namespace glm{
@@ -153,10 +152,10 @@ namespace detail
 
 	template <typename T, qualifier Q>
 #	ifdef GLM_FORCE_QUAT_DATA_XYZW
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T,Q>::qua(const std::array<float,4> _values)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T,Q>::qua(const float* _values)
 			: x(_values[0]), y(_values[1]), z(_values[2]), w(_values[3]) 
 #	else
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T,Q>::qua(const std::array<float,4> _values)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T,Q>::qua(const float* _values)
 			: w(_values[3]), x(_values[0]), y(_values[1]), z(_values[2]) 
 #	endif
 	{}

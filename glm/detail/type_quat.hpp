@@ -95,7 +95,7 @@ namespace glm
 		GLM_FUNC_DECL GLM_CONSTEXPR qua(T w, T x, T y, T z);
 #		endif
 
-		GLM_FUNC_DECL GLM_CONSTEXPR qua(const std::array<float,4> _values);
+		GLM_FUNC_DECL GLM_CONSTEXPR qua(const float* _values);
 
 		// -- Conversion constructors --
 
