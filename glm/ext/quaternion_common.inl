@@ -38,6 +38,24 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER qua<T, Q> nlerp(qua<T, Q> const& x, qua<T, Q> const& y, T a)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'lerp' only accept floating-point inputs");
+
+		// Lerp is only defined in [0, 1]
+		assert(a >= static_cast<T>(0));
+		assert(a <= static_cast<T>(1));
+
+		qua<T,Q> z = y;
+
+		if(glm::dot(x,y) < 0.0f)
+			z = -z;
+
+		qua<T,Q> qua = x * (static_cast<T>(1) - a) + (z * a);
+		return glm::normalize(qua);
+	}
+
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER qua<T, Q> slerp(qua<T, Q> const& x, qua<T, Q> const& y, T a)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'slerp' only accept floating-point inputs");

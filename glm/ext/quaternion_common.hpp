@@ -64,6 +64,18 @@ namespace glm
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> lerp(qua<T, Q> const& x, qua<T, Q> const& y, T a);
 
+	/// Normalized linear interpolation of two quaternions.
+	/// The interpolation always take the short path ad the rotation is performed at constant speed.
+	///
+	/// @param x A quaternion
+	/// @param y A quaternion
+	/// @param a Interpolation factor. The interpolation is defined in the range [0, 1].
+	///
+	/// @tparam T A floating-point scalar type
+	/// @tparam Q A value from qualifier enum
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL qua<T, Q> nlerp(qua<T, Q> const& x, qua<T, Q> const& y, T a);
+
 	/// Spherical linear interpolation of two quaternions.
 	/// The interpolation always take the short path and the rotation is performed at constant speed.
 	///
