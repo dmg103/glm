@@ -102,6 +102,24 @@ namespace glm
 #		endif
 	}
 
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL GLM_CONSTEXPR mat<4, 4, T, Q>::mat(const float* _values)
+#		if GLM_HAS_INITIALIZER_LISTS
+			: value{
+				col_type(_values[0], _values[1], _values[2], _values[3]),
+				col_type(_values[4], _values[5], _values[6], _values[7]),
+				col_type(_values[8], _values[9], _values[10], _values[11]),
+				col_type(_values[12], _values[13], _values[14], _values[15])}
+#		endif
+	{
+#		if !GLM_HAS_INITIALIZER_LISTS
+			this->value[0] = col_type(_values[0], _values[1], _values[2], _values[3]);
+			this->value[1] = col_type(_values[4], _values[5], _values[6], _values[7]);
+			this->value[2] = col_type(_values[8], _values[9], _values[10], _values[11]);
+			this->value[3] = col_type(_values[12], _values[13], _values[14], _values[15]);
+#		endif
+	}
+	
 	// -- Conversions --
 
 	template<typename T, qualifier Q>

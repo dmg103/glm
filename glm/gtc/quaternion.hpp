@@ -105,6 +105,14 @@ namespace glm
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> quat_cast(mat<4, 4, T, Q> const& x);
 
+	/// Converts a pure rotation 4 * 4 matrix to a quaternion in a faster way.
+	///
+	/// @tparam T Floating-point scalar types.
+	///
+	/// @see gtc_quaternion
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL qua<T, Q> quat_cast_fast(mat<4, 4, T, Q> const& x);
+
 	/// Returns the component-wise comparison result of x < y.
 	///
 	/// @tparam T Floating-point scalar types

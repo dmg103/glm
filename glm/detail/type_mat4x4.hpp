@@ -26,6 +26,7 @@ namespace glm
 
 		typedef length_t length_type;
 		GLM_FUNC_DECL static GLM_CONSTEXPR length_type length(){return 4;}
+		GLM_FUNC_DECL static GLM_CONSTEXPR length_type total_length(){return 16;}
 
 		GLM_FUNC_DECL col_type & operator[](length_type i);
 		GLM_FUNC_DECL GLM_CONSTEXPR col_type const& operator[](length_type i) const;
@@ -47,6 +48,8 @@ namespace glm
 			col_type const& v1,
 			col_type const& v2,
 			col_type const& v3);
+
+		GLM_FUNC_DECL GLM_CONSTEXPR mat(const float* _values);
 
 		// -- Conversions --
 

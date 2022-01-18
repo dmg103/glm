@@ -1,6 +1,7 @@
 #include "../trigonometric.hpp"
 #include "../geometric.hpp"
 #include "../exponential.hpp"
+#include "type_ptr.hpp"
 #include "epsilon.hpp"
 #include <limits>
 
@@ -126,6 +127,20 @@ namespace glm
 	GLM_FUNC_QUALIFIER qua<T, Q> quat_cast(mat<4, 4, T, Q> const& m4)
 	{
 		return quat_cast(mat<3, 3, T, Q>(m4));
+	}
+
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER qua<T, Q> quat_cast_fast(mat<4, 4, T, Q> const& m)
+	{
+		const float* floatMatrix = glm::value_ptr(m);
+
+		vec3 up = normalize(vec3(floatMatrix[4],floatMatrix[5],floatMatrix[6]));
+		vec3 forward = normalize(vec3(floatMatrix[8],floatMatrix[9],floatMatrix[10]));
+		vec3 right = cross(up,forward);
+		
+		up = cross(forward,right);
+
+		return quatLookAtLH(forward,up);
 	}
 
 	template<typename T, qualifier Q>
