@@ -39,6 +39,11 @@ namespace glm
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<2, T, Q>::vec(T _x, T _y)
 		: x(_x), y(_y)
 	{}
+	
+	template <typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<2, T, Q>::vec(const float* _values)
+		: x(_values[0]), y(_values[1])
+	{}
 
 	// -- Conversion scalar constructors --
 

@@ -163,6 +163,11 @@ namespace detail
 		: x(_x), y(_y), z(_z), w(_w)
 	{}
 
+	template <typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<4, T, Q>::vec(const float* _values)
+		: x(_values[0]), y(_values[1]), z(_values[2]), w(_values[3])
+	{}
+
 	// -- Conversion scalar constructors --
 
 	template<typename T, qualifier Q>

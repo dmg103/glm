@@ -104,6 +104,7 @@ namespace glm
 
 		GLM_FUNC_DECL GLM_CONSTEXPR explicit vec(T scalar);
 		GLM_FUNC_DECL GLM_CONSTEXPR vec(T x, T y);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(const float* _values);
 
 		// -- Conversion constructors --
 

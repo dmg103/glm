@@ -91,6 +91,7 @@ namespace glm
 
 		/// Return the count of components of the vector
 		GLM_FUNC_DECL static GLM_CONSTEXPR length_type length(){return 4;}
+		GLM_FUNC_DECL static GLM_CONSTEXPR length_type total_length(){return 4;}
 
 		GLM_FUNC_DECL GLM_CONSTEXPR T & operator[](length_type i);
 		GLM_FUNC_DECL GLM_CONSTEXPR T const& operator[](length_type i) const;
@@ -106,6 +107,7 @@ namespace glm
 
 		GLM_FUNC_DECL GLM_CONSTEXPR explicit vec(T scalar);
 		GLM_FUNC_DECL GLM_CONSTEXPR vec(T x, T y, T z, T w);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(const float* _values);
 
 		// -- Conversion scalar constructors --
 
