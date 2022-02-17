@@ -158,6 +158,19 @@ namespace glm
 
 	template<typename T, qualifier Q>
 	template<typename U>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<2, T, Q> & vec<2, T, Q>::operator=(vec<2, U, Q>&& v)
+	{
+		if(this == &v)
+			return *this;
+		
+		std::swap(this->x,v.x);
+		std::swap(this->y,v.y);
+
+		return *this;
+	}
+
+	template<typename T, qualifier Q>
+	template<typename U>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<2, T, Q> & vec<2, T, Q>::operator+=(U scalar)
 	{
 		this->x += static_cast<T>(scalar);

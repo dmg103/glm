@@ -543,6 +543,21 @@ namespace detail
 
 	template<typename T, qualifier Q>
 	template<typename U>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<4, T, Q>& vec<4, T, Q>::operator=(vec<4, U, Q>&& v)
+	{
+		if(this == &v)
+			return *this;
+		
+		std::swap(this->x,v.x);
+		std::swap(this->y,v.y);
+		std::swap(this->z,v.z);
+		std::swap(this->w,v.w);
+
+		return *this;
+	}
+
+	template<typename T, qualifier Q>
+	template<typename U>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<4, T, Q> & vec<4, T, Q>::operator+=(U scalar)
 	{
 		return (*this = detail::compute_vec4_add<T, Q, detail::is_aligned<Q>::value>::call(*this, vec<4, T, Q>(scalar)));
